@@ -1,0 +1,30 @@
+﻿<Window x:Class="BoredGames.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:BoredGames"
+        Title="MainWindow" Height="350" Width="525">
+    
+    <Grid>
+        <Button x:Name="btnSelectAllPlayers" Content="Select All" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Width="75" Click="btnSelectAllPlayers_Click"/>
+        <Button x:Name="btnUnselectAllPlayers" Content="Select None" HorizontalAlignment="Left" Margin="90,265,0,0" VerticalAlignment="Top" Width="75" Click="btnUnselectAllPlayers_Click"/>
+        <Button x:Name="btnNewPlayer" Content="New Player" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="btnSelectAllGames" Content="Select All" HorizontalAlignment="Left" Margin="170,265,0,0" VerticalAlignment="Top" Width="75" Click="btnSelectAllGames_Click"/>
+        <Button x:Name="btnUnselectAllGames" Content="Select None" HorizontalAlignment="Left" Margin="250,265,0,0" VerticalAlignment="Top" Width="75" Click="btnUnselectAllGames_Click"/>
+        <Button x:Name="btnNewGame" Content="New Game" HorizontalAlignment="Left" Margin="170,290,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Who's Playing?" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label Content="What Games Do You Have?" HorizontalAlignment="Left" Margin="170,9,0,0" VerticalAlignment="Top" Width="155"/>
+        <Button x:Name="btnEditPlayer" Content="Edit Selected" HorizontalAlignment="Left" Margin="90,289,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnEditGame" Content="Edit Selected" HorizontalAlignment="Left" Margin="250,290,0,0" VerticalAlignment="Top" Width="75"/>
+        <Slider HorizontalAlignment="Left" Margin="330,40,0,0" VerticalAlignment="Top" Width="177" Height="24"/>
+        <Label Content="Max Time:" HorizontalAlignment="Left" Margin="330,69,0,0" VerticalAlignment="Top"/>
+        <Label Content="0 Minutes" HorizontalAlignment="Left" Margin="419,69,0,0" VerticalAlignment="Top"/>
+        <Label Content="How Long Do You Have?" HorizontalAlignment="Left" Margin="330,9,0,0" VerticalAlignment="Top" Width="155"/>
+        <Button x:Name="btnGo" Content="I'm Bored" HorizontalAlignment="Left" Margin="381,158,0,0" VerticalAlignment="Top" Width="75"/>
+        <ListView x:Name="lvPlayers" HorizontalAlignment="Left" Height="220" Margin="10,40,0,0" VerticalAlignment="Top" Width="155" SelectionMode="Multiple" ItemsSource="{Binding Players}" DisplayMemberPath="Name">
+            <ListView.DataContext>
+                <local:PlayerList />
+            </ListView.DataContext>
+        </ListView>
+        <ListView x:Name="lvGames" HorizontalAlignment="Left" Height="220" Margin="170,40,0,0" VerticalAlignment="Top" Width="155" SelectionMode="Multiple" />
+    </Grid>
+</Window>
