@@ -12,6 +12,11 @@ namespace BoredGames
     {
         public ObservableCollection<Player> Players { get; set; }
 
+        private List<string> _PlayerCount = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "Many" };
+        public List<string> PlayerCount { get {return _PlayerCount;} }
+
+
+
         public PlayerList()
         {
             Players = new ObservableCollection<Player>() { new Player("foo"), new Player("bar") };

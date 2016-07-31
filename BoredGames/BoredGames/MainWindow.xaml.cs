@@ -39,7 +39,6 @@ namespace BoredGames
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Players.Add(new Player("foo bar"));
             _playerViewModel.Players.Add(new Player("foo"));
         }
 
@@ -61,6 +60,21 @@ namespace BoredGames
         private void btnUnselectAllGames_Click(object sender, RoutedEventArgs e)
         {
             lvGames.SelectedItem = null;
+        }
+
+        private void btnEditPlayer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEditGame_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnNewGame_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

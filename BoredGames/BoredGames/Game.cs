@@ -26,7 +26,7 @@ namespace BoredGames
         /// <summary>
         /// The approximate time for one game (in hours)
         /// </summary>
-        public int PlayTime { get; private set; }
+        public double PlayTime { get; private set; }
 
         /// <summary>
         /// Create a new game with the given parameters
@@ -35,7 +35,7 @@ namespace BoredGames
         /// <param name="MinNumPlayers">The minimum number of players to play</param>
         /// <param name="MaxNumPlayers">THe maximum number of players to play</param>
         /// <param name="PlayTime">How many hours the game takes</param>
-        Game(string Name, int MinNumPlayers, int MaxNumPlayers, int PlayTime)
+        public Game(string Name, int MinNumPlayers, int MaxNumPlayers, double PlayTime)
         {
             this.Name = Name;
             this.MinNumPlayers = MinNumPlayers;
