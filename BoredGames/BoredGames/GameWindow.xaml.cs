@@ -19,16 +19,40 @@ namespace BoredGames
     /// </summary>
     public partial class GameWindow : Window
     {
+        private Game _TheGame = null;
+
         public GameWindow()
         {
             InitializeComponent();
         }
 
         public GameWindow(Game g)
+            :this()
         {
-            InitializeComponent();
+            _TheGame = g;
 
+            tbName.Text = g.Name;
+            cbMinPlayers.SelectedValue = g.MinNumPlayers;
+            cbMaxPlayers.SelectedValue = g.MaxNumPlayers;
+            cbLength.SelectedValue = g.PlayTime.ToHours();
+        }
 
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            _TheGame.Name = tbName.Text;
+            _TheGame.MinNumPlayers = (int)cbMinPlayers.SelectedItem;
+            _TheGame.MaxNumPlayers = (int)cbMaxPlayers.SelectedItem;
+            _TheGame.PlayTime = ((string)cbLength.SelectedValue).ToTime();
+
+            this.Close();
+        }
+
+        // TODO: Make this actually update the list
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var theGameList = (GameList)this.DataContext;
+            bool test = theGameList.Games.Remove(theGameList.Games.First(g => g.Name == _TheGame.Name)); // This can probably be nicer
+            this.Close();
         }
     }
 }

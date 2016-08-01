@@ -8,13 +8,20 @@ using System.ComponentModel;
 
 namespace BoredGames
 {
-    class GameList
+    class GameList : INotifyPropertyChanged
     {
-        public ObservableCollection<Game> Games { get; private set; }
+        private ObservableCollection<Game> _Games = new ObservableCollection<Game>();
+        public ObservableCollection<Game> Games 
+        {
+            get { return _Games; }
+            set
+            {
+                _Games = value;
+                RaisePropertyChanged("Games");
+            }
+        }
 
-        private ObservableCollection<string> _Times;
-
-        public ObservableCollection<string> Times { get { return _Times; } }
+        public ObservableCollection<string> Times { get; private set; }
 
         public readonly static Dictionary<string, double> TimeStrings = new Dictionary<string, double>()
         {
@@ -29,6 +36,8 @@ namespace BoredGames
             {"A Long Time", 100}
         };
 
+        public ObservableCollection<int> Players { get; private set; }
+
         public GameList()
         {
             Games = new ObservableCollection<Game>() 
@@ -38,7 +47,20 @@ namespace BoredGames
                 new Game("Diplomacy", 4, 6, 100)
             };
 
-            _Times = new ObservableCollection<string>(TimeStrings.Keys.ToList());
+            Players = new ObservableCollection<int>(Enumerable.Range(1, 20));
+            Times = new ObservableCollection<string>(TimeStrings.Keys.ToList());
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 

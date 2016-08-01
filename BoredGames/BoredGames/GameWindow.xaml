@@ -3,20 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:BoredGames"
         Title="GameWindow" Height="300" Width="300">
+    
+    <Window.DataContext>
+        <local:GameList />
+    </Window.DataContext>
 
    <Grid>
         <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Min Players" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
         <Label Content="Max Players" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="96,14,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" Margin="96,58,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" Margin="96,104,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="96,14,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbMinPlayers" HorizontalAlignment="Left" Margin="96,58,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Players}" />
+        <ComboBox x:Name="cbMaxPlayers" HorizontalAlignment="Left" Margin="96,104,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Players}" />
         <Label Content="Game Length" HorizontalAlignment="Left" Margin="10,152,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="96,156,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Times}">
-            <ComboBox.DataContext>
-                <local:GameList />
-            </ComboBox.DataContext>
-        </ComboBox>
-
+        <ComboBox x:Name="cbLength" HorizontalAlignment="Left" Margin="96,156,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Times}" />
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="110,203,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="110,239,0,0" VerticalAlignment="Top" Width="75" Click="btnDelete_Click"/>
     </Grid>
 </Window>

@@ -25,7 +25,7 @@
                 <local:PlayerList />
             </ListView.DataContext>
         </ListView>
-        <ListView x:Name="lvGames" HorizontalAlignment="Left" Height="220" Margin="170,40,0,0" VerticalAlignment="Top" Width="155" SelectionMode="Multiple" ItemsSource="{Binding Games}" DisplayMemberPath="Name">
+        <ListView x:Name="lvGames" HorizontalAlignment="Left" Height="220" Margin="170,40,0,0" VerticalAlignment="Top" Width="155" SelectionMode="Multiple" ItemsSource="{Binding Games}" DisplayMemberPath="Name" SelectionChanged="lvGames_SelectionChanged">
             <ListView.DataContext>
                 <local:GameList />
             </ListView.DataContext>
